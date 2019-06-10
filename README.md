@@ -23,10 +23,10 @@ The script uses three objects to store and process the input file.
 
 `Report`, `Driver` and `Trip`.
 
-A new `Report` is initialzed with an input file. An instance method on the `report` can then be called to process this input file. This processing creates various instances of `Drivers` and `Trips` according to the information in the input file.
+A new `Report` is initialzed with an input file. An instance method on a `Report` can then be called to process this input file. This processing creates various instances of `Drivers` and `Trips` according to the information in the input file.
 
-The attribute on a `Rerport` object named `drivers` is a `Hash`; the keys are the `name` of a `Driver` and the values are the corresponding `Driver` object. A `Hash` was chosen so that a `Driver` can quickly be found when a new `Trip` needs to be added. 
+The attribute on a `Report` object named `drivers` is a `Hash`; the key is the `name` of a `Driver` and the value is the corresponding `Driver` object. A `Hash` was chosen so that a `Driver` can quickly be found when a new `Trip` needs to be added.
 
-Each `Driver` has an attribute `trips` which is a simple `Array` of `Trip` objects that the `Driver` took according to the input file. A new `Trip` should be added to the `Driver` by the `add_trip` instance method which updates the `total_distance`, `total_time` and `avg_speed` for the `Driver`. This was chosen so that sorting `drivers` by the total distance they have driven will just require sorting by an attribute value, not requiring on-the-fly calculations of distance from `trips'.
+Each `Driver` has an attribute `trips` which is a simple `Array` of `Trip` objects that the `Driver` took according to the input file. A new `Trip` should be added to the `Driver` by the `add_trip` instance method which updates the `total_distance`, `total_time` and `avg_speed` for the `Driver`. This was chosen so that sorting `drivers` by the total distance they have driven will just require sorting by the `Driver` attribute total_distance, save us from performing on-the-fly calculations of total distance that would require iterating over each `Driver's` `trips` array.
 
-Finally, the method `create_report` can be called on an instance of `Report`. This will generate output displaying the total distance and average speed for each Driver with the list sorted by descending total distance.
+Finally, the method `create_report` can be called on an instance of `Report`. This will print output the console as well as saving the report to the file `output.txt`. The output summarizes the total distance and average speed for each `Driver` with the list sorted by descending total distance.
