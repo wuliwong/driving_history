@@ -48,6 +48,7 @@ class Report
         summary = driver.trip_summary
         file.write(summary)
         file.write("\n")
+        puts summary
       end
     end
   end
