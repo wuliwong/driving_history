@@ -16,6 +16,10 @@ class Driver
   end
 
   def trip_summary
-    return "#{@name}: #{@total_distance.round} miles @ #{@avg_speed.round} mph"
+    if @total_distance == 0.0
+      return "#{@name}: 0 miles"
+    else
+      return "#{@name}: #{@total_distance.round} miles @ #{@avg_speed.round} mph"
+    end
   end
 end
