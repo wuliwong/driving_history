@@ -8,7 +8,7 @@ class Trip
     @avg_speed = @distance/@time
 
     unless @avg_speed > 5.0 && @avg_speed < 100.0
-      raise "Bad average speed data"
+      raise "Input processing: Bad average speed data: #{@avg_speed} for #{trip_array[1]}"
     end
   end
 
