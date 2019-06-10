@@ -31,11 +31,15 @@ class Report
     elsif line_array[0] == "Trip"
       if driver = @drivers[line_array[1]]
         begin
-          driver.trips.push(Trip.new(line_array))
+          driver.add_trip(Trip.new(line_array))
         rescue => e
           puts e
         end
       end
     end
+  end
+
+  def create_report
+
   end
 end
