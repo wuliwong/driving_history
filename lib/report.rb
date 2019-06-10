@@ -30,8 +30,11 @@ class Report
       @drivers[driver.name] = driver
     elsif line_array[0] == "Trip"
       if driver = @drivers[line_array[1]]
-
-        driver.trips.push(Trip.new(line_array))
+        begin
+          driver.trips.push(Trip.new(line_array))
+        rescue => e
+          puts e
+        end
       end
     end
   end

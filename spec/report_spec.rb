@@ -24,4 +24,13 @@ describe Report do
 
     expect(dan.trips.length).to eq(1)
   end
+
+  it "ignores trip for a driver with too slow speed" do
+    @report.parse_line("Driver Dan")
+    @report.parse_line("Trip Dan 01:15 07:45 1.3")
+
+    dan = @report.drivers["Dan"]
+
+    expect(dan.trips.length).to eq(0)
+  end
 end
