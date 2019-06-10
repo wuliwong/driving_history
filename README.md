@@ -19,6 +19,9 @@ Dan: 39 miles @ 47 mph
 Bob: 0 miles
 ```
 
+The report will also be saved to a file in the root directory of the project named:
+
+`report.txt`.
 
 ## How to run script
 
@@ -27,10 +30,6 @@ From the root directory of this project run:
 `ruby lib/driving_history.rb lib/input.txt`
 
 You may substitute `lib/input.txt` for a different file of the expected format.
-
-The script will generate a summary report. It will print to the conosole as well as save the report to:
-
-`output.txt`.
 
 
 ## Project description
