@@ -1,3 +1,6 @@
+require './lib/driver'
+require './lib/trip'
+
 class Report
   attr_accessor :file
   attr_accessor :drivers
@@ -40,6 +43,8 @@ class Report
   end
 
   def create_report
-
+    @drivers.sort_by{|name, driver| -driver.total_distance }.each do |name, driver|
+      puts driver.trip_summary
+    end
   end
 end
