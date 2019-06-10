@@ -43,8 +43,12 @@ class Report
   end
 
   def create_report
-    @drivers.sort_by{|name, driver| -driver.total_distance }.each do |name, driver|
-      puts driver.trip_summary
+    File.open("output.txt", 'w') do |file|
+      @drivers.sort_by{|name, driver| -driver.total_distance }.each do |name, driver|
+        summary = driver.trip_summary
+        file.write(summary)
+        file.write("\n")
+      end
     end
   end
 end
