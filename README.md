@@ -19,9 +19,7 @@ Dan: 39 miles @ 47 mph
 Bob: 0 miles
 ```
 
-The script uses three objects to store and process the input file.
-
-`Report`, `Driver` and `Trip`.
+The script uses three objects to store and process the input file: `Report`, `Driver` and `Trip`. Separate objects and methods were chosen to make testing and debugging easier as well as provide an intuitive separation of concerns.
 
 A new `Report` is initialzed with an input file. An instance method on a `Report` can then be called to process this input file. This processing creates various instances of `Drivers` and `Trips` according to the information in the input file.
 
