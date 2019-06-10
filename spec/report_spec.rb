@@ -1,18 +1,27 @@
 require 'rspec/autorun'
 require 'report'
 require 'driver'
+require 'trip'
 
 describe Report do
-  it "creates a driver" do
-    report = Report.new('lib/input.txt')
-    report.parse_line("Driver Dan")
+  before(:all) { @report = Report.new('lib/input.txt') }
 
-    expect(report.drivers["Dan"]).to be_a(Driver)
+  it "creates a driver" do
+    @report.parse_line("Driver Dan")
+
+    expect(@report.drivers["Dan"]).to be_a(Driver)
   end
 
   it "ignores lines without enough information" do
-    report = Report.new('lib/input.txt')
+    expect(@report.parse_line("bad")).to eq(nil)
+  end
 
-    expect(report.parse_line("bad")).to eq(nil)
+  it "creates a trip for a driver" do
+    @report.parse_line("Driver Dan")
+    @report.parse_line("Trip Dan 07:15 07:45 17.3")
+
+    dan = @report.drivers["Dan"]
+
+    expect(dan.trips.length).to eq(1)
   end
 end

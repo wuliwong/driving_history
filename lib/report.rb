@@ -21,13 +21,18 @@ class Report
   end
 
   def parse_line line
-    words = line.split(" ")
+    line_array = line.split(" ")
 
-    if words.length < 2
+    if line_array.length < 2
       return nil
-    elsif words[0] == "Driver"
-      driver = Driver.new(words[1])
+    elsif line_array[0] == "Driver"
+      driver = Driver.new(line_array[1])
       @drivers[driver.name] = driver
+    elsif line_array[0] == "Trip"
+      if driver = @drivers[line_array[1]]
+
+        driver.trips.push(Trip.new(line_array))
+      end
     end
   end
 end
