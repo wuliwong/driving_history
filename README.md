@@ -11,7 +11,7 @@ Trip Dan 06:12 06:32 21.8
 Trip Alex 12:01 13:16 42.0
 ```
 
-and prints an output summary of the format
+and prints a summary report in the format
 
 ```
 Alex: 42 miles @ 34 mph
